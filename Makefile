@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+         #
+#    By: macbookpro <macbookpro@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/28 11:34:55 by dmilan            #+#    #+#              #
-#    Updated: 2020/11/14 14:51:22 by dmilan           ###   ########.fr        #
+#    Updated: 2020/11/15 20:47:20 by macbookpro       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME      = libft.a
 HEADER    = libft.h
-CCFLAGS   = -c -Wall -Wextra -Werror
+CCFLAGS   = -Wall -Wextra -Werror
 SRC       = $(wildcard ft_*.c)
 OBJ       = $(SRC:.c=.o)
 
@@ -21,16 +21,19 @@ OBJ       = $(SRC:.c=.o)
 all: $(NAME)
 
 %.o: %.c $(HEADER)
-	gcc $(CCFLAGS) $<
+	gcc -c $(CCFLAGS) $<
 
 $(NAME): $(OBJ) 
 	ar -rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+build: $(NAME)
+	gcc -g $(CCFLAGS) main.c -L. -lft
