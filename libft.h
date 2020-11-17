@@ -6,15 +6,19 @@
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 11:43:38 by dmilan            #+#    #+#             */
-/*   Updated: 2020/11/17 10:04:55 by dmilan           ###   ########.fr       */
+/*   Updated: 2020/11/17 18:55:15 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define BUFFER_SIZE 42
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
+# include <sys/types.h>
+# include <sys/uio.h>
+# include <fcntl.h>
 
 typedef struct		s_list
 {
@@ -75,5 +79,6 @@ int					ft_isblank(char c);
 int					ft_leni(int n);
 char				*ft_strnew(int n);
 char				*ft_strjoinfree(char *s1, const char *s2);
+int					get_next_line(int fd, char **line);
 
 #endif

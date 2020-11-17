@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: macbookpro <macbookpro@student.42.fr>      +#+  +:+       +#+         #
+#    By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/28 11:34:55 by dmilan            #+#    #+#              #
-#    Updated: 2020/11/15 20:47:20 by macbookpro       ###   ########.fr        #
+#    Updated: 2020/11/17 18:53:34 by dmilan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME      = libft.a
 HEADER    = libft.h
 CCFLAGS   = -Wall -Wextra -Werror
-SRC       = $(wildcard ft_*.c)
+SRC       = $(wildcard ft_*.c) get_next_line.c
 OBJ       = $(SRC:.c=.o)
 
 .PHONY: all clean fclean re
