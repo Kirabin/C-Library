@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_leni.c                                          :+:      :+:    :+:   */
+/*   ft_putui_fd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/13 12:26:45 by dmilan            #+#    #+#             */
-/*   Updated: 2020/11/19 11:07:02 by dmilan           ###   ########.fr       */
+/*   Created: 2020/11/19 11:16:19 by dmilan            #+#    #+#             */
+/*   Updated: 2020/11/20 13:10:36 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_leni(int n)
+void	ft_putui_fd(unsigned int n, int fd)
 {
-	int len;
-
-	len = !(n > 0);
-	while (n)
+	if (0 <= n && n <= 9)
+		ft_putc_fd(n + '0', fd);
+	else
 	{
-		len++;
-		n /= 10;
+		ft_putui_fd(n / 10, fd);
+		ft_putui_fd(n % 10, fd);
 	}
-	return (len);
 }

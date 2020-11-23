@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putul_hex_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 10:05:03 by dmilan            #+#    #+#             */
-/*   Updated: 2020/11/17 18:54:53 by dmilan           ###   ########.fr       */
+/*   Created: 2020/11/19 18:49:39 by dmilan            #+#    #+#             */
+/*   Updated: 2020/11/21 12:46:05 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(void)
+void		ft_putul_hex_fd(unsigned long n, int is_upper, int fd)
 {
-	char	*line;
-	int		fd;
-	int		ret;
-
-	fd = open("file", O_RDONLY);
-	while ((ret = get_next_line(fd, &line)) > 0)
+	if (0 <= n && n <= 9)
+		ft_putc_fd(n + '0', fd);
+	else if (10 <= n && n <= 15)
 	{
-		ft_putnbr_fd(ret, 1);
-		ft_putstr_fd(": ", 1);
-		ft_putendl_fd(line, 1);
-		free(line);
+		if (is_upper)
+			ft_putc_fd(n - 10 + 'A', 1);
+		else
+			ft_putc_fd(n - 10 + 'a', 1);
 	}
-	close(fd);
-	free(line);
-	return (0);
+	else
+	{
+		ft_putul_hex_fd(n / 16, is_upper, fd);
+		ft_putul_hex_fd(n % 16, is_upper, fd);
+	}
 }

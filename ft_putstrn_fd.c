@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_leni.c                                          :+:      :+:    :+:   */
+/*   ft_putstrn_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/13 12:26:45 by dmilan            #+#    #+#             */
-/*   Updated: 2020/11/19 11:07:02 by dmilan           ###   ########.fr       */
+/*   Created: 2020/11/19 12:51:29 by dmilan            #+#    #+#             */
+/*   Updated: 2020/11/21 12:46:21 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_leni(int n)
+void	ft_putstrn_fd(char *s, int n, int fd)
 {
-	int len;
+	int		i;
 
-	len = !(n > 0);
-	while (n)
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i] && i < n)
 	{
-		len++;
-		n /= 10;
+		ft_putc_fd(s[i], fd);
+		i++;
 	}
-	return (len);
 }

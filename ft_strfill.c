@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_leni.c                                          :+:      :+:    :+:   */
+/*   ft_strfill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/13 12:26:45 by dmilan            #+#    #+#             */
-/*   Updated: 2020/11/19 11:07:02 by dmilan           ###   ########.fr       */
+/*   Created: 2020/11/23 11:48:52 by dmilan            #+#    #+#             */
+/*   Updated: 2020/11/23 11:49:37 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_leni(int n)
+void	ft_strfill(char fill, int n)
 {
-	int len;
+	int		i;
 
-	len = !(n > 0);
-	while (n)
+	i = 0;
+	while (i < n)
 	{
-		len++;
-		n /= 10;
+		ft_putc_fd(fill, 1);
+		i++;
 	}
-	return (len);
 }

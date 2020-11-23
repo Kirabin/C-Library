@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_leni.c                                          :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/13 12:26:45 by dmilan            #+#    #+#             */
-/*   Updated: 2020/11/19 11:07:02 by dmilan           ###   ########.fr       */
+/*   Created: 2020/11/19 19:22:54 by dmilan            #+#    #+#             */
+/*   Updated: 2020/11/19 19:24:41 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_leni(int n)
+char		*ft_uitoa(unsigned int n)
 {
-	int len;
+	char	*res;
+	int		i;
+	int		len;
 
-	len = !(n > 0);
-	while (n)
+	len = ft_lenui(n);
+	res = malloc(len + 1);
+	if (!res)
+		return (0);
+	i = len - 1;
+	while (i >= 0)
 	{
-		len++;
+		res[i--] = (n % 10) + '0';
 		n /= 10;
 	}
-	return (len);
+	res[len] = '\0';
+	return (res);
 }

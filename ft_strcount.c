@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_leni.c                                          :+:      :+:    :+:   */
+/*   ft_strcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/13 12:26:45 by dmilan            #+#    #+#             */
-/*   Updated: 2020/11/19 11:07:02 by dmilan           ###   ########.fr       */
+/*   Created: 2020/11/18 15:02:18 by dmilan            #+#    #+#             */
+/*   Updated: 2020/11/21 12:46:30 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_leni(int n)
+int		ft_strcount(const char *s, char c)
 {
-	int len;
+	int	count;
 
-	len = !(n > 0);
-	while (n)
-	{
-		len++;
-		n /= 10;
-	}
-	return (len);
+	count = 0;
+	if (!s)
+		return (0);
+	while (*s)
+		if (*s++ == c)
+			count++;
+	return (count);
 }

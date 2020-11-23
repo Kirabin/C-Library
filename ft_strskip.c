@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strskip.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmilan <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 13:22:14 by dmilan            #+#    #+#             */
-/*   Updated: 2020/10/30 13:37:29 by dmilan           ###   ########.fr       */
+/*   Created: 2020/11/19 16:39:26 by dmilan            #+#    #+#             */
+/*   Updated: 2020/11/19 16:45:04 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+const char		*ft_strskip(const char *s, int (*is_that)(int))
 {
-	write(fd, &c, 1);
+	if (!s || !is_that)
+		return (s);
+	while (*s && is_that(*s))
+	{
+		s++;
+	}
+	return (s);
 }

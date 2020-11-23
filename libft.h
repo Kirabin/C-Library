@@ -6,19 +6,20 @@
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 11:43:38 by dmilan            #+#    #+#             */
-/*   Updated: 2020/11/17 18:55:15 by dmilan           ###   ########.fr       */
+/*   Updated: 2020/11/23 11:58:50 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define TRUE 1
+# define FALSE 0
 # define BUFFER_SIZE 42
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <fcntl.h>
+# include <stdarg.h>
+# include <stdbool.h>
 
 typedef struct		s_list
 {
@@ -38,6 +39,7 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
+void				ft_strfill(char fill, int n);
 char				*ft_strnstr(const char *haystack, const char *needle,
 								size_t len);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -57,11 +59,35 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
 char				*ft_itoa(int n);
+char				*ft_uitoa(unsigned int n);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-void				ft_putchar_fd(char c, int fd);
+void				ft_putc_fd(char c, int fd);
+void				ft_putuc_fd(unsigned char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
+void				ft_putstrn_fd(char *s, int n, int fd);
 void				ft_putendl_fd(char *s, int fd);
-void				ft_putnbr_fd(int n, int fd);
+void				ft_puti_fd(int n, int fd);
+void				ft_putui_fd(unsigned int n, int fd);
+void				ft_putui_hex_fd(unsigned int n, int is_upper, int fd);
+void				ft_putul_hex_fd(unsigned long n, int is_upper, int fd);
+
+int					ft_isspace(char c);
+int					ft_isblank(char c);
+int					ft_leni(int n);
+int					ft_lenui(unsigned int n);
+int					ft_lenui_hex(unsigned int n);
+int					ft_lenul_hex(unsigned long n);
+char				*ft_strnew(int n);
+char				*ft_strjoinfree(char *s1, const char *s2);
+int					ft_strcount(const char *s, char c);
+int					ft_min(int a, int b);
+int					ft_max(int a, int b);
+const char			*ft_strskip(const char *s, int (*is_that)(int));
+void				ft_swapi(int *a, int *b);
+
+/*
+** Linked lists
+*/
 
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
@@ -74,11 +100,42 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 
-int					ft_isspace(char c);
-int					ft_isblank(char c);
-int					ft_leni(int n);
-char				*ft_strnew(int n);
-char				*ft_strjoinfree(char *s1, const char *s2);
-int					get_next_line(int fd, char **line);
+/*
+** ft_printf
+*/
+typedef struct		s_format
+{
+	int				arg_len;
+	char			*arg_s;
+	int				width;
+	int				precision;
+	bool			precision_given;
+	bool			left_aligned;
+	bool			alternate_form;
+	char			fill;
+	char			sign;
+	char			type;
+	char			length;
+}					t_format;
+
+typedef struct		s_print
+{
+	int				printed;
+	va_list			valist;
+	t_format		f;
+}					t_print;
+
+int					ft_printf(const char *format, ...);
+void				fill_width(char fill, int n);
+void				print_c(t_print *print);
+void				print_s(t_print *print);
+void				print_p(t_print *print);
+int					print_di(t_print *print);
+int					print_u(t_print *print);
+void				print_x(t_print *print, bool is_upper);
+void				print_percent(t_print *print);
+t_print				default_print(void);
+t_format			default_format(void);
+const char			*get_f_length(t_print *print, const char *format_string);
 
 #endif
