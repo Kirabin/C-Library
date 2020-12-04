@@ -6,7 +6,7 @@
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 11:43:38 by dmilan            #+#    #+#             */
-/*   Updated: 2020/12/04 17:32:35 by dmilan           ###   ########.fr       */
+/*   Updated: 2020/12/04 17:36:10 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,7 @@ const char			*get_f_length(t_print *print, const char *format_string);
 /*
 **  POINT
 */
+
 t_point				ft_point_add(t_point a, t_point b);
 
 #endif
