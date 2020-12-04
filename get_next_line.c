@@ -6,7 +6,7 @@
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 18:45:56 by dmilan            #+#    #+#             */
-/*   Updated: 2020/11/17 18:49:06 by dmilan           ###   ########.fr       */
+/*   Updated: 2020/11/26 13:13:06 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,5 @@ int			get_next_line(int fd, char **line)
 		*line = ft_strjoinfree(*line, buff);
 	}
 	free(buff);
-	return (bytes_were_read ? 1 : 0);
+	return (bytes_were_read || ft_strlen(*line));
 }

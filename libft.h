@@ -6,7 +6,7 @@
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 11:43:38 by dmilan            #+#    #+#             */
-/*   Updated: 2020/11/23 11:58:50 by dmilan           ###   ########.fr       */
+/*   Updated: 2020/12/04 17:32:35 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,24 @@
 # define LIBFT_H
 # define TRUE 1
 # define FALSE 0
-# define BUFFER_SIZE 42
 # include <unistd.h>
 # include <stdlib.h>
-# include <stddef.h>
 # include <stdarg.h>
+# include <fcntl.h>
+
+# include <stddef.h>
 # include <stdbool.h>
+# include <limits.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+typedef struct		s_point
+{
+	double			x;
+	double			y;
+}					t_point;
 
 typedef struct		s_list
 {
@@ -54,6 +66,7 @@ int					ft_tolower(int c);
 void				*ft_calloc(size_t count, size_t size);
 char				*ft_strdup(const char *s1);
 
+const char			*ft_strskip_char(const char *s, char c);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
@@ -70,6 +83,7 @@ void				ft_puti_fd(int n, int fd);
 void				ft_putui_fd(unsigned int n, int fd);
 void				ft_putui_hex_fd(unsigned int n, int is_upper, int fd);
 void				ft_putul_hex_fd(unsigned long n, int is_upper, int fd);
+void				ft_putcppn_fd(char **arr, int n, int fd);
 
 int					ft_isspace(char c);
 int					ft_isblank(char c);
@@ -84,9 +98,10 @@ int					ft_min(int a, int b);
 int					ft_max(int a, int b);
 const char			*ft_strskip(const char *s, int (*is_that)(int));
 void				ft_swapi(int *a, int *b);
+int					ft_absi(int a);
 
 /*
-** Linked lists
+**  Linked lists
 */
 
 t_list				*ft_lstnew(void *content);
@@ -99,10 +114,12 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+int					get_next_line(int fd, char **line);
 
 /*
-** ft_printf
+**  ft_printf
 */
+
 typedef struct		s_format
 {
 	int				arg_len;
@@ -137,5 +154,10 @@ void				print_percent(t_print *print);
 t_print				default_print(void);
 t_format			default_format(void);
 const char			*get_f_length(t_print *print, const char *format_string);
+
+/*
+**  POINT
+*/
+t_point				ft_point_add(t_point a, t_point b);
 
 #endif

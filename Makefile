@@ -6,7 +6,7 @@
 #    By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/28 11:34:55 by dmilan            #+#    #+#              #
-#    Updated: 2020/11/23 12:00:06 by dmilan           ###   ########.fr        #
+#    Updated: 2020/11/28 13:01:16 by dmilan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,7 @@ SRC       = ft_atoi.c \
 			ft_strrchr.c \
 			ft_strtrim.c \
 			ft_strskip.c \
+			ft_strskip_char.c \
 			ft_substr.c \
 			ft_tolower.c \
 			ft_toupper.c \
@@ -87,7 +88,10 @@ SRC       = ft_atoi.c \
 			ft_printf/print_u.c \
 			ft_printf/print_x.c \
 			ft_printf/print_percent.c \
-			ft_printf/ft_printf_support.c
+			ft_printf/ft_printf_support.c \
+			ft_putcppn_fd.c \
+			ft_absi.c \
+			ft_point_add.c 
 OBJ       = $(SRC:.c=.o)
 
 .PHONY: all clean fclean re

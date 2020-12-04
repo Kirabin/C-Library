@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putcppn_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 10:41:26 by dmilan            #+#    #+#             */
-/*   Updated: 2020/11/25 11:41:19 by dmilan           ###   ########.fr       */
+/*   Created: 2020/11/26 13:18:58 by dmilan            #+#    #+#             */
+/*   Updated: 2020/12/04 17:32:07 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-**		Locate a substring in a string
-*/
-
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+void	ft_putcppn_fd(char **arr, int n, int fd)
 {
-	size_t	i;
-	size_t	j;
+	int		i;
 
 	i = 0;
-	j = 0;
-	if (!*needle)
-		return ((char *)haystack);
-	while (haystack[j] && j < len)
+	if (!arr)
+		return ;
+	while (i < n && arr[i])
 	{
-		if (haystack[j] == needle[i])
-		{
-			if (needle[++i] == '\0')
-				return ((char *)haystack + j - i + 1);
-		}
-		else
-		{
-			j -= i;
-			i = 0;
-		}
-		j++;
+		ft_putstr_fd(arr[i], fd);
+		ft_putc_fd('\n', fd);
+		i++;
 	}
-	return (0);
 }
