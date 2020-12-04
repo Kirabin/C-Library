@@ -6,7 +6,7 @@
 #    By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/28 11:34:55 by dmilan            #+#    #+#              #
-#    Updated: 2020/11/28 13:01:16 by dmilan           ###   ########.fr        #
+#    Updated: 2020/12/04 17:59:42 by dmilan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,8 +102,7 @@ all: $(NAME)
 	gcc -c $(CCFLAGS) $< -o $@ -I .
 
 $(NAME): $(OBJ) 
-	ar -rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	ar -rcs $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)
