@@ -6,7 +6,7 @@
 #    By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/28 11:34:55 by dmilan            #+#    #+#              #
-#    Updated: 2020/12/07 11:16:15 by dmilan           ###   ########.fr        #
+#    Updated: 2020/12/07 16:20:41 by dmilan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,15 +21,15 @@ NAME      = libft.a
 HEADER    = libft.h
 CCFLAGS   = -Wall -Wextra -Werror
 
-SRC_PRINT = ft_printf \
-			print_c \
-			print_s \
-			print_p \
-			print_di \
-			print_u \
-			print_x \
-			print_percent \
-			ft_printf_support
+SRC_PRINT = ft_printf.c \
+			print_c.c \
+			print_s.c \
+			print_p.c \
+			print_di.c \
+			print_u.c \
+			print_x.c \
+			print_percent.c \
+			ft_printf_support.c
 
 SRC_STR   = ft_strchr.c \
 			ft_strcount.c \
@@ -104,7 +104,7 @@ SRC_MEM   = ft_bzero.c \
 SRC       = $(addprefix ft_str/, $(SRC_STR)) \
 			$(addprefix ft_lst/, $(SRC_LST)) \
 			$(addprefix ft_chr/, $(SRC_CHR)) \
-			$(addprefix ft_printf/, $(addsuffix .c, $(SRC_PRINT))) \
+			$(addprefix ft_printf/, $(SRC_PRINT)) \
 			$(addprefix ft_put/, $(SRC_PUT)) \
 			$(addprefix ft_int/, $(SRC_INT)) \
 			ft_uitoa.c \
