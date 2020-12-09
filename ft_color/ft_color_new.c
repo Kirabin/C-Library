@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putuc.c                                         :+:      :+:    :+:   */
+/*   ft_color_new.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 13:00:18 by dmilan            #+#    #+#             */
-/*   Updated: 2020/11/20 13:00:50 by dmilan           ###   ########.fr       */
+/*   Created: 2020/12/07 18:43:20 by dmilan            #+#    #+#             */
+/*   Updated: 2020/12/07 18:44:59 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putuc_fd(unsigned char c, int fd)
+t_color		ft_color_new(unsigned char a, unsigned char r,
+						unsigned char g, unsigned char b)
 {
-	write(fd, &c, 1);
+	t_color		new;
+
+	new.a = a;
+	new.r = r;
+	new.g = g;
+	new.b = b;
+	new.argb = ft_color_argb(a, r, g, b);
+	return (new);
 }

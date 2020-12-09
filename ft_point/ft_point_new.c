@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrn_fd.c                                    :+:      :+:    :+:   */
+/*   ft_point_new.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 12:51:29 by dmilan            #+#    #+#             */
-/*   Updated: 2020/11/21 12:46:21 by dmilan           ###   ########.fr       */
+/*   Created: 2020/12/07 16:51:40 by dmilan            #+#    #+#             */
+/*   Updated: 2020/12/07 16:54:08 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstrn_fd(char *s, int n, int fd)
+t_point		ft_point_new(double x, double y)
 {
-	int		i;
+	t_point		new;
 
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i] && i < n)
-	{
-		ft_putc_fd(s[i], fd);
-		i++;
-	}
+	new.x = x;
+	new.y = y;
+	return (new);
 }

@@ -6,7 +6,7 @@
 #    By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/28 11:34:55 by dmilan            #+#    #+#              #
-#    Updated: 2020/12/07 16:20:41 by dmilan           ###   ########.fr        #
+#    Updated: 2020/12/07 18:41:57 by dmilan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,20 +100,25 @@ SRC_MEM   = ft_bzero.c \
 			ft_memmove.c \
 			ft_memset.c
 
+SRC_POINT = ft_point_add.c \
+			ft_point_new.c \
+			ft_point_len.c \
+			ft_point_rotate.c
 
-SRC       = $(addprefix ft_str/, $(SRC_STR)) \
-			$(addprefix ft_lst/, $(SRC_LST)) \
-			$(addprefix ft_chr/, $(SRC_CHR)) \
-			$(addprefix ft_printf/, $(SRC_PRINT)) \
-			$(addprefix ft_put/, $(SRC_PUT)) \
-			$(addprefix ft_int/, $(SRC_INT)) \
+SRC       = $(wildcard ft_str/ft_*.c)   \
+			$(wildcard ft_lst/ft_*.c)   \
+			$(wildcard ft_chr/ft_*.c)   \
+			$(wildcard ft_printf/*.c)   \
+			$(wildcard ft_put/ft_*.c)   \
+			$(wildcard ft_int/ft_*.c)   \
+			$(wildcard ft_point/ft_*.c) \
+			$(wildcard ft_color/ft_*.c) \
 			ft_uitoa.c \
 			ft_lenui.c \
 			ft_lenui_hex.c \
 			ft_lenul_hex.c \
 			ft_split.c \
-			get_next_line.c \
-			ft_point_add.c
+			get_next_line.c
 
 OBJ       = $(SRC:.c=.o)
 

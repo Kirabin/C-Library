@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puti_fd.c                                       :+:      :+:    :+:   */
+/*   ft_point_rotate.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 13:59:43 by dmilan            #+#    #+#             */
-/*   Updated: 2020/11/20 13:10:06 by dmilan           ###   ########.fr       */
+/*   Created: 2020/12/07 18:24:22 by dmilan            #+#    #+#             */
+/*   Updated: 2020/12/07 18:24:52 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_puti_fd(int n, int fd)
+t_point		ft_point_rotate(t_point point, double angle)
 {
-	if (0 <= n && n <= 9)
-		ft_putc_fd(n + '0', fd);
-	else if (n >= 10)
-	{
-		ft_puti_fd(n / 10, fd);
-		ft_puti_fd(n % 10, fd);
-	}
-	else
-	{
-		ft_putc_fd('-', fd);
-		if (n / 10)
-			ft_puti_fd(-(n / 10), fd);
-		ft_puti_fd(-(n % 10), fd);
-	}
+	t_point	result;
+
+	result.x = point.x * cos(angle) - point.y * sin(angle);
+	result.y = point.x * sin(angle) + point.y * cos(angle);
+	return (result);
 }

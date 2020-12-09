@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putcppn_fd.c                                    :+:      :+:    :+:   */
+/*   ft_point_len.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 13:18:58 by dmilan            #+#    #+#             */
-/*   Updated: 2020/12/04 17:32:07 by dmilan           ###   ########.fr       */
+/*   Created: 2020/12/07 18:22:24 by dmilan            #+#    #+#             */
+/*   Updated: 2020/12/07 18:22:45 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putcppn_fd(char **arr, int n, int fd)
+double		ft_point_len(t_point point)
 {
-	int		i;
-
-	i = 0;
-	if (!arr)
-		return ;
-	while (i < n && arr[i])
-	{
-		ft_putstr_fd(arr[i], fd);
-		ft_putc_fd('\n', fd);
-		i++;
-	}
+	return (sqrt(point.x * point.x + point.y * point.y));
 }

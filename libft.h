@@ -6,18 +6,21 @@
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 11:43:38 by dmilan            #+#    #+#             */
-/*   Updated: 2020/12/07 11:31:09 by dmilan           ###   ########.fr       */
+/*   Updated: 2020/12/09 09:31:36 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define TRUE 1
-# define FALSE 0
+# define PI 3.14159265359
+# define STD_IN 0
+# define STD_OUT 1
+# define STD_ERROR 2
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
 # include <fcntl.h>
+# include <math.h>
 
 # include <stddef.h>
 # include <stdbool.h>
@@ -26,12 +29,6 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
-
-typedef struct		s_point
-{
-	double			x;
-	double			y;
-}					t_point;
 
 typedef struct		s_list
 {
@@ -101,6 +98,7 @@ void				ft_puti_fd(int n, int fd);
 void				ft_putui_fd(unsigned int n, int fd);
 void				ft_putui_hex_fd(unsigned int n, int is_upper, int fd);
 void				ft_putul_hex_fd(unsigned long n, int is_upper, int fd);
+void				ft_putcpp_fd(char **arr, int fd);
 void				ft_putcppn_fd(char **arr, int n, int fd);
 
 /*
@@ -165,10 +163,39 @@ t_format			default_format(void);
 const char			*get_f_length(t_print *print, const char *format_string);
 
 /*
+**  ft_point
+*/
+typedef struct		s_point
+{
+	double			x;
+	double			y;
+}					t_point;
+
+t_point				ft_point_add(t_point a, t_point b);
+t_point				ft_point_new(double x, double y);
+double				ft_point_len(t_point point);
+t_point				ft_point_rotate(t_point point, double angle);
+
+/*
+**  ft_color
+*/
+typedef struct		s_color
+{
+	unsigned char	a;
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+	int				argb;
+}					t_color;
+
+int					ft_color_argb(unsigned char a, unsigned char r,
+									unsigned char g, unsigned char b);
+t_color				ft_color_new(unsigned char a, unsigned char r,
+									unsigned char g, unsigned char b);
+/*
 **  ft_other
 */
 int					get_next_line(int fd, char **line);
-t_point				ft_point_add(t_point a, t_point b);
 int					ft_lenui(unsigned int n);
 int					ft_lenui_hex(unsigned int n);
 int					ft_lenul_hex(unsigned long n);
