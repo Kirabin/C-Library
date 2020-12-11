@@ -6,7 +6,7 @@
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 11:43:38 by dmilan            #+#    #+#             */
-/*   Updated: 2020/12/11 16:49:10 by dmilan           ###   ########.fr       */
+/*   Updated: 2020/12/11 16:52:31 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_calloc(size_t count, size_t size);
 void				*ft_calloc_c(size_t count, size_t size, int c);
-
 
 /*
 **  ft_str
@@ -127,7 +126,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 void				ft_lst_put(t_list *list, void(*put)(void *content));
 void				ft_lst_swap(t_list **head, t_list *a, t_list *b);
-void				ft_lst_bubble_sort(t_list **list, 
+void				ft_lst_bubble_sort(t_list **list,
 										int(*compare)(t_list *, t_list *));
 
 /*
