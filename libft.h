@@ -6,7 +6,7 @@
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 11:43:38 by dmilan            #+#    #+#             */
-/*   Updated: 2020/12/09 09:31:36 by dmilan           ###   ########.fr       */
+/*   Updated: 2020/12/11 16:49:10 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,6 @@
 #  define BUFFER_SIZE 42
 # endif
 
-typedef struct		s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
-
 /*
 **  ft_mem
 */
@@ -47,6 +41,8 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_calloc(size_t count, size_t size);
+void				*ft_calloc_c(size_t count, size_t size, int c);
+
 
 /*
 **  ft_str
@@ -113,6 +109,12 @@ void				ft_swapi(int *a, int *b);
 /*
 **  ft_lst
 */
+typedef struct		s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);
@@ -123,6 +125,10 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+void				ft_lst_put(t_list *list, void(*put)(void *content));
+void				ft_lst_swap(t_list **head, t_list *a, t_list *b);
+void				ft_lst_bubble_sort(t_list **list, 
+										int(*compare)(t_list *, t_list *));
 
 /*
 **  ft_printf

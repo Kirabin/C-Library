@@ -6,7 +6,7 @@
 #    By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/28 11:34:55 by dmilan            #+#    #+#              #
-#    Updated: 2020/12/07 18:41:57 by dmilan           ###   ########.fr        #
+#    Updated: 2020/12/09 09:58:09 by dmilan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,6 +107,7 @@ SRC_POINT = ft_point_add.c \
 
 SRC       = $(wildcard ft_str/ft_*.c)   \
 			$(wildcard ft_lst/ft_*.c)   \
+			$(wildcard ft_mem/ft_*.c)   \
 			$(wildcard ft_chr/ft_*.c)   \
 			$(wildcard ft_printf/*.c)   \
 			$(wildcard ft_put/ft_*.c)   \

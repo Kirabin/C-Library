@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lst_put.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 17:13:04 by dmilan            #+#    #+#             */
-/*   Updated: 2020/12/11 10:51:13 by dmilan           ###   ########.fr       */
+/*   Created: 2020/12/10 10:43:39 by dmilan            #+#    #+#             */
+/*   Updated: 2020/12/10 11:08:10 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void		ft_lst_put(t_list *list, void(*put)(void *content))
 {
-	t_list	*node;
-	t_list	*temp;
-
-	node = *lst;
-	if (!del || !*lst)
-		return ;
-	while (node)
+	if (!list)
 	{
-		del(node->content);
-		temp = node;
-		node = node->next;
-		free(temp);
+		ft_printf("list is empty\n");
+		return ;
 	}
-	*lst = NULL;
+	if (!put)
+	{
+		ft_printf("function is empty\n");
+		return ;
+	}
+	while (list)
+	{
+		put(list->content);
+		list = list->next;
+	}
+	ft_printf("\n");
 }

@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lst_bubble_sort.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 17:13:04 by dmilan            #+#    #+#             */
-/*   Updated: 2020/12/11 10:51:13 by dmilan           ###   ########.fr       */
+/*   Created: 2020/12/11 16:48:04 by dmilan            #+#    #+#             */
+/*   Updated: 2020/12/11 16:48:57 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void		ft_lst_bubble_sort(t_list **list, int(*compare)(t_list *, t_list *))
 {
-	t_list	*node;
-	t_list	*temp;
-
-	node = *lst;
-	if (!del || !*lst)
-		return ;
-	while (node)
+	t_list		*a;
+	t_list		*b;
+ 
+	a = *list;
+	while (a)
 	{
-		del(node->content);
-		temp = node;
-		node = node->next;
-		free(temp);
+		b = a->next;
+		while (b)
+		{
+			if (compare(a, b))
+				ft_lst_swap(list, a, b);
+			b = b->next;
+		}
+		a = a->next;
 	}
-	*lst = NULL;
 }
