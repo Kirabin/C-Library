@@ -6,17 +6,17 @@
 /*   By: dmilan <dmilan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 16:48:04 by dmilan            #+#    #+#             */
-/*   Updated: 2020/12/11 16:48:57 by dmilan           ###   ########.fr       */
+/*   Updated: 2020/12/11 16:54:30 by dmilan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lst_bubble_sort(t_list **list, int(*compare)(t_list *, t_list *))
+void	ft_lst_bubble_sort(t_list **list, int (*compare)(t_list *, t_list *))
 {
 	t_list		*a;
 	t_list		*b;
- 
+
 	a = *list;
 	while (a)
 	{
