@@ -7,7 +7,7 @@ char	*get_next_line(int fd)
 	int		ret;
 
 	line = _strdup("");
-	while (fd >= 0)
+	while (line && fd >= 0)
 	{
 		ret = read(fd, &buffer, 1);
 		if (ret == -1)
