@@ -123,6 +123,7 @@ void	reverse_list(t_list **begin_list);
 void	sort_list(t_list **list, bool (*compare)(void *, void *));
 bool	is_list_sorted(t_list *list, bool (*compare)(void *, void *));
 bool	list_compare_int_more(void *a, void *b);
+bool	list_compare_int_less(void *a, void *b);
 bool	list_compare_int_equal(void *a, void *b);
 void	swap_list_content(t_list *a, t_list *b);
 

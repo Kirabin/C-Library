@@ -35,6 +35,14 @@ bool	list_compare_int_equal(void *a, void *b)
 	return (false);
 }
 
+// Compare (int)a < (int)b
+bool	list_compare_int_less(void *a, void *b)
+{
+	if (*(int *)a < *(int *)b)
+		return (true);
+	return (false);
+}
+
 bool	is_list_sorted(t_list *list, bool (*compare)(void *, void *))
 {
 	if (!list || !list->next)
