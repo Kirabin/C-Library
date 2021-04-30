@@ -32,6 +32,12 @@ typedef struct s_point
 	double			y;
 }					t_point;
 
+typedef struct s_queue
+{
+	void			*content;
+	struct s_queue	*next;
+}					t_queue;
+
 typedef struct s_list
 {
 	void			*content;
@@ -95,6 +101,8 @@ void	put_uint(unsigned int n);
 void	put_uint_fd(unsigned int n, int fd);
 void	put_uint_hex(unsigned int n, int is_upper);
 void	put_uint_hex_fd(unsigned int n, int is_upper, int fd);
+void	put_void_int_endl(void *arg);
+void	put_void_string_endl(void *arg);
 
 int		_abs(int a);
 int		int_len(int n);
@@ -127,6 +135,13 @@ bool	list_compare_int_more(void *a, void *b);
 bool	list_compare_int_less(void *a, void *b);
 bool	list_compare_int_equal(void *a, void *b);
 void	swap_list_content(t_list *a, t_list *b);
+
+t_queue	*new_queue(void	*content);
+t_queue	*pop_queue(t_queue **queue);
+void	push_queue(t_queue **queue, t_queue *new);
+void	put_queue(t_queue *queue, void (*put)(void *content));
+void	delete_queue(t_queue *queue, void (*delete)(void *));
+void	clear_queue(t_queue **queue, void (*delete)(void *));
 
 t_point	point_add(t_point a, t_point b);
 t_point	point_new(double x, double y);

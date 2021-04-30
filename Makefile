@@ -23,13 +23,15 @@ SRC_NUM		=	_abs int_max int_min int_len swap_int \
 				is_long_long is_number is_integer
 
 SRC_PUT		=	put_char put_cpp put_int put_string put_two_strings put_uint \
-				put_uint_hex
+				put_uint_hex put_void
 
 SRC_PATH	=	is_path get_file_name_from_path
 
 SRC_LST		=	clear_list delete_list find_list list_add_back list_add_front \
 				list_get_last list_size merge_lists new_list put_list \
 				reverse_list sort_list swap_list_content
+
+SRC_QUEUE	=	new_queue
 
 SRC_MEM		=	_calloc
 
@@ -48,7 +50,8 @@ SRC			=	$(patsubst %, string/%.c, $(SRC_STR)) \
 				$(patsubst %, color/%.c, $(SRC_COLOR)) \
 				$(patsubst %, point/%.c, $(SRC_POINT)) \
 				$(patsubst %, path/%.c, $(SRC_PATH)) \
-				$(patsubst %, list/%.c, $(SRC_LST))
+				$(patsubst %, list/%.c, $(SRC_LST)) \
+				$(patsubst %, queue/%.c, $(SRC_QUEUE))
 
 OBJ			=	$(SRC:.c=.o)
 
