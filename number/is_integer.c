@@ -1,5 +1,6 @@
 #include "libft.h"
 
+// TODO: doesn't work with negative numbers
 bool	is_integer(char *str)
 {
 	int		res;

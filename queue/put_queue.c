@@ -9,7 +9,6 @@ void	put_queue(t_queue *queue, void (*put)(void *content))
 			put(queue->content);
 			queue = queue->next;
 		}
-		put_string("\n");
 	}
 	else
 	{

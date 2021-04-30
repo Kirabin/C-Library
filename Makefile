@@ -31,7 +31,7 @@ SRC_LST		=	clear_list delete_list find_list list_add_back list_add_front \
 				list_get_last list_size merge_lists new_list put_list \
 				reverse_list sort_list swap_list_content
 
-SRC_QUEUE	=	new_queue
+SRC_QUEUE	=	new_queue clear_queue pop_queue push_queue put_queue
 
 SRC_MEM		=	_calloc
 

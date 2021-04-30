@@ -45,13 +45,20 @@ bool	list_compare_int_less(void *a, void *b)
 
 bool	is_list_sorted(t_list *list, bool (*compare)(void *, void *))
 {
-	if (!list || !list->next)
-		return (true);
-	while (list->next)
+	t_list	*start;
+
+	if (list)
 	{
-		if (compare(list->content, list->next->content))
-			return (false);
+		start = list;
 		list = list->next;
+		while (list)
+		{
+			if (compare(list->previous->content, list->content))
+				return (false);
+			list = list->next;
+			if (start == list)
+				break ;
+		}
 	}
 	return (true);
 }

@@ -102,7 +102,9 @@ void	put_uint_fd(unsigned int n, int fd);
 void	put_uint_hex(unsigned int n, int is_upper);
 void	put_uint_hex_fd(unsigned int n, int is_upper, int fd);
 void	put_void_int_endl(void *arg);
+void	put_void_int_space(void *arg);
 void	put_void_string_endl(void *arg);
+void	put_void_string_space(void *arg);
 
 int		_abs(int a);
 int		int_len(int n);
