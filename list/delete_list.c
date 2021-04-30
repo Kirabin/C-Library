@@ -1,9 +1,10 @@
 #include "libft.h"
 
-void	delete_list(t_list *lst, void (*del)(void*))
+void	free_list(t_list *lst, void (*del)(void*))
 {
-	if (!lst || !del)
-		return ;
-	del(lst->content);
-	free(lst);
+	if (lst && del)
+	{
+		del(lst->content);
+		free(lst);
+	}
 }

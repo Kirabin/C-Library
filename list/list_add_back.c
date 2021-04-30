@@ -1,19 +1,29 @@
 #include "libft.h"
 
-void	list_add_back(t_list **lst, t_list *new)
+void	list_add_back(t_list **root, t_list *new)
 {
-	t_list	*node;
+	t_list	*end;
+	t_list	*start;
 
-	node = *lst;
-	if (!*lst)
+	start = *root;
+	if (start && new)
 	{
-		*lst = new;
-		return ;
+		end = start->previous;
+		if (end)
+		{
+			end->next = new;
+			new->previous = end;
+			new->next = start;
+			start->previous = new;
+		}
+		else
+		{
+			start->next = new;
+			start->previous = new;
+			new->next = start;
+			new->previous = start;
+		}
 	}
-	if (!new)
-		return ;
-	while (node->next)
-		node = node->next;
-	node->next = new;
-	new->previous = node;
+	else if (new)
+		*root = new;
 }

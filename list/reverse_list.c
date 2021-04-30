@@ -1,5 +1,6 @@
 #include "libft.h"
 
+// TODO: make it working for doubly circular lists
 void	reverse_list(t_list **begin_list)
 {
 	t_list	*previous;

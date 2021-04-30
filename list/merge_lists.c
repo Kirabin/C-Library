@@ -1,6 +1,7 @@
 #include "libft.h"
 
 // TODO: rewrite merge_lists
+// TODO: make it working for doubly circular lists
 void	merge_lists(t_list **begin_list1, t_list *begin_list2)
 {
 	t_list	*node;

@@ -108,7 +108,7 @@ bool	is_long_long(char *str);
 void	*_calloc(size_t count, size_t size);
 
 void	clear_list(t_list **lst, void (*del)(void*));
-void	delete_list(t_list *lst, void (*del)(void*));
+void	free_list(t_list *lst, void (*del)(void*));
 t_list	*find_list(t_list *begin_list, void *data_ref,
 			bool (*compare)(void *, void *));
 void	list_add_back(t_list **lst, t_list *new);
@@ -118,7 +118,8 @@ int		list_size(t_list *lst);
 void	merge_lists(t_list **begin_list1, t_list *begin_list2);
 t_list	*new_list(void *content);
 t_list	*new_list_int(int a);
-void	put_list(t_list *list, void (*put)(void *content));
+void	put_list_forward(t_list *list, void (*put)(void *content));
+void	put_list_backward(t_list *list, void (*put)(void *content));
 void	reverse_list(t_list **begin_list);
 void	sort_list(t_list **list, bool (*compare)(void *, void *));
 bool	is_list_sorted(t_list *list, bool (*compare)(void *, void *));
