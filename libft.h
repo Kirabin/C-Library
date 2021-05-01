@@ -101,10 +101,8 @@ void	put_uint(unsigned int n);
 void	put_uint_fd(unsigned int n, int fd);
 void	put_uint_hex(unsigned int n, int is_upper);
 void	put_uint_hex_fd(unsigned int n, int is_upper, int fd);
-void	put_void_int_endl(void *arg);
-void	put_void_int_space(void *arg);
-void	put_void_string_endl(void *arg);
-void	put_void_string_space(void *arg);
+void	put_void_int(void *arg, char *end);
+void	put_void_string(void *arg, char *end);
 
 int		_abs(int a);
 int		int_len(int n);
@@ -117,6 +115,7 @@ bool	is_long_long(char *str);
 
 void	*_calloc(size_t count, size_t size);
 
+t_list	*copy_list(t_list *list, void *(*dup)(void*));
 void	clear_list(t_list **lst, void (*del)(void*));
 void	free_list(t_list *lst, void (*del)(void*));
 t_list	*find_list(t_list *begin_list, void *data_ref,
@@ -128,8 +127,10 @@ int		list_size(t_list *lst);
 void	merge_lists(t_list **begin_list1, t_list *begin_list2);
 t_list	*new_list(void *content);
 t_list	*new_list_int(int a);
-void	put_list_forward(t_list *list, void (*put)(void *content));
-void	put_list_backward(t_list *list, void (*put)(void *content));
+void	put_list_forward(t_list *list, void (*put)(void *content, char *end),
+			char *sep, char *end);
+void	put_list_backward(t_list *list, void (*put)(void *content, char *end),
+			char *sep, char *end);
 void	reverse_list(t_list **begin_list);
 void	sort_list(t_list **list, bool (*compare)(void *, void *));
 bool	is_list_sorted(t_list *list, bool (*compare)(void *, void *));
@@ -141,7 +142,8 @@ void	swap_list_content(t_list *a, t_list *b);
 t_queue	*new_queue(void	*content);
 t_queue	*pop_queue(t_queue **queue);
 void	push_queue(t_queue **queue, t_queue *new);
-void	put_queue(t_queue *queue, void (*put)(void *content));
+void	put_queue(t_queue *queue, void (*put)(void *content, char *end),
+			char *sep, char *end);
 void	delete_queue(t_queue *queue, void (*delete)(void *));
 void	clear_queue(t_queue **queue, void (*delete)(void *));
 

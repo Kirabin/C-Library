@@ -1,21 +1,52 @@
 #include "libft.h"
 
+// static t_list	*sort_list_by_ascii(t_list *list)
+// {
+// 	t_list	*new_list;
+// 	t_list	*a;
+// 	t_list	*b;
+// 	t_list	*temp;
+
+// 	new_list = copy_list(list, _strdup);
+// 	a = new_list;
+// 	while (a)
+// 	{
+// 		b = new_list;
+// 		while (b->next)
+// 		{
+// 			if (_strcmp(b->content, b->next->content) > 0)
+// 				swap_list_content(a, b);
+// 			b = b->next;
+// 		}
+// 		a = a->next;
+// 	}
+// 	return (new_list);
+// }
+
 void	sort_list(t_list **list, bool (*compare)(void *, void *))
 {
 	t_list		*a;
 	t_list		*b;
+	int			i;
+	int			j;
+	int			size;
 
+	i = 0;
 	a = *list;
-	while (a)
+	size = list_size(a);
+	while (a && i < size)
 	{
-		b = a->next;
-		while (b)
+		j = 1;
+		b = (*list)->next;
+		while (b && j < size)
 		{
-			if (compare(a, b))
-				swap_list_content(a, b);
+			if (compare(b->previous->content, b->content))
+				swap_list_content(b->previous, b);
 			b = b->next;
+			j++;
 		}
 		a = a->next;
+		i++;
 	}
 }
 
