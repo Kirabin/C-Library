@@ -9,6 +9,7 @@ t_queue	*new_queue(void	*content)
 		return (NULL);
 	node->content = content;
 	node->next = NULL;
+	node->previous = NULL;
 	return (node);
 }
 

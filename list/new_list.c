@@ -7,6 +7,7 @@ t_list	*new_list(void *content)
 	node = malloc(sizeof(t_list));
 	if (!node)
 		return (NULL);
+	node->flag = false;
 	node->content = content;
 	node->next = NULL;
 	node->previous = NULL;
@@ -28,6 +29,7 @@ t_list	*new_list_int(int a)
 		free(content);
 		return (NULL);
 	}
+	node->flag = false;
 	node->content = content;
 	node->next = NULL;
 	node->previous = NULL;

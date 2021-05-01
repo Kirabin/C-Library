@@ -36,11 +36,13 @@ typedef struct s_queue
 {
 	void			*content;
 	struct s_queue	*next;
+	struct s_queue	*previous;
 }					t_queue;
 
 typedef struct s_list
 {
 	void			*content;
+	bool			flag;
 	struct s_list	*next;
 	struct s_list	*previous;
 }					t_list;

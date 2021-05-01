@@ -12,6 +12,7 @@ void	push_queue(t_queue **root, t_queue *new)
 			while (node->next)
 				node = node->next;
 			node->next = new;
+			new->previous = node;
 		}
 		else
 		{

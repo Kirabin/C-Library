@@ -2,9 +2,10 @@
 
 void	delete_queue(t_queue *queue, void (*delete)(void *))
 {
-	if (queue && delete)
+	if (queue)
 	{
-		delete(queue->content);
+		if (delete)
+			delete(queue->content);
 		free(queue);
 	}
 }
@@ -14,7 +15,7 @@ void	clear_queue(t_queue **queue, void (*delete)(void *))
 	t_queue		*node;
 	t_queue		*temp;
 
-	if (queue && delete)
+	if (queue)
 	{
 		node = *queue;
 		while (node)
